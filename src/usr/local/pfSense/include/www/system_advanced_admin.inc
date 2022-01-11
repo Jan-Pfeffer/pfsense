@@ -279,6 +279,56 @@ function doAdvancedAdminPOST($post, $json = false) {
 			unset($config['system']['ssh']['enable']);
 		}
 
+		$sshd_cert = $config['system']['ssh']['sshcert'];
+		$ssh-cert-text =  $config['system']['ssh']['ssh-cert-text'];
+		if ($post['sshcert']) {
+			$config['system']['ssh']['sshcert'] = "enabled";
+			if (!empty($post['ssh-cert-text'])){
+				file_put_contents("/etc/ssh/PFsense-SSH-HostCertificate",$ssh-cert-text);
+			else {
+				pass
+			}
+		} else {
+			unset($config['system']['ssh']['sshcert']);
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		$sshd_keyonly = $config['system']['ssh']['sshdkeyonly'];
 		if ($post['sshdkeyonly'] == "enabled") {
 			$config['system']['ssh']['sshdkeyonly'] = "enabled";
