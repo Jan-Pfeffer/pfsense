@@ -280,6 +280,54 @@ $section->addInput(new Form_Input(
 	['min' => 1, 'max' => 65535, 'placeholder' => 22]
 ))->setHelp('Note: Leave this blank for the default of 22.');
 
+
+
+
+
+$section->addInput(new Form_Checkbox(
+	'sshcert',
+	'Add SSH Certificate',
+	'Adds a SSH Certificate To PFSense.',
+	$pconfig['sshcert']
+));
+
+$section->addInput(new Form_Textarea(
+	'cert',
+	'*Certificate data',
+	$pconfig['ssh-cert-text']
+))->setHelp('Paste a SSH certificate here.');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $form->add($section);
 $section = new Form_Section('Login Protection');
 
