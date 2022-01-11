@@ -105,6 +105,15 @@ if ($config['system']['ssh']['sshdkeyonly'] == "both") {
 	$sshconf .= "PasswordAuthentication yes\n";
 	$sshconf .= "PubkeyAuthentication yes\n";
 }
+$sshconf .= "VersionAddendum none\n";
+
+/*Add SSH Certificate Location To SSHD*/
+if (isset($config['system']['ssh']['sshcert'])) {
+	$sshconf .= "HostCertificate /etc/ssh/PFsense-SSH-HostCertificate\n";
+} else {
+	$sshconf .= "\n";
+}
+
 $sshconf .= "UseDNS no\n";
 $sshconf .= "LoginGraceTime 30s\n";
 /* Hide FreeBSD version */
